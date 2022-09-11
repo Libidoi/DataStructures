@@ -12,13 +12,35 @@ public class huffmanTree {
         Node root = createHuffmanTree(arr);
 
         //测试
-        preOrder(root);
+        //preOrder(root);
+        //infixOrder(root);
+        proOrder(root);
     }
-
+1
     //前序遍历的方法
     public static void preOrder(Node root) {
         if (root != null) {
             root.preOrder();
+        } else {
+            System.out.println("空树");
+            return;
+        }
+    }
+
+    //中序遍历
+    public static void infixOrder(Node root) {
+        if (root != null) {
+            root.infixOrder();
+        } else {
+            System.out.println("空树");
+            return;
+        }
+    }
+
+    //后序遍历
+    public static void proOrder(Node root) {
+        if (root != null) {
+            root.proOrder();
         } else {
             System.out.println("空树");
             return;
@@ -91,9 +113,32 @@ class Node implements Comparable<Node> {
         }
     }
 
+    //中序遍历
+    public void infixOrder() {
+        if (this.left != null) {
+            this.left.infixOrder();
+        }
+        System.out.println(this);
+        if (this.right != null) {
+            this.right.infixOrder();
+        }
+    }
+
+    //后序遍历
+    public void proOrder() {
+        if (this.left != null) {
+            this.left.proOrder();
+        }
+        if (this.right != null) {
+            this.right.proOrder();
+        }
+        System.out.println(this);
+    }
+
     public Node(int value) {
         this.value = value;
     }
+
 
     @Override
     public String toString() {
