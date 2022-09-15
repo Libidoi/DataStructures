@@ -16,7 +16,7 @@ public class huffmanTree {
         //infixOrder(root);
         proOrder(root);
     }
-1
+
     //前序遍历的方法
     public static void preOrder(Node root) {
         if (root != null) {
